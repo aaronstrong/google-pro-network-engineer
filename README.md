@@ -17,3 +17,12 @@ Here are the objectives of the exam at a high level. A deeper discussion of the 
 ## Practie Exam Questions
 
 Google has some [practice exams](https://cloud.google.com/certification/sample-questions/cloud-network-engineer). You can take them an unlimited number of times.
+
+## Community
+
+Resources from other community members:
+
+1. [Mark Johnson](https://www.linkedin.com/pulse/google-cloud-professional-network-engineer-exam-study-mark-johnson)
+1. [Ammett Williams](https://www.linkedin.com/pulse/google-cloud-professional-network-engineer-exam-prep-williams/)
+1. [Jaroslav Pantjoha](https://medium.com/devops-dudes/google-cloud-network-engineer-exam-experience-fail-fast-learn-pass-1d913e18888)
+1. [Ivam Luz](https://medium.com/ci-t/how-to-pass-the-google-professional-cloud-network-engineer-certification-40bb1f6cc962)

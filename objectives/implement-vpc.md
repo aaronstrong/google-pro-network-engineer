@@ -135,7 +135,30 @@
             * VM instances in `network-c` can reach other VMs in `network-b` and systems in the on-premises network.
             * Because VPC Network Peering isn't transitive, VM instances in `network-a` and `network-c` cannot communicate with each other unless you also peer network `network-a` with `network-c`.
 
-1. Shared VPC
+1. [Shared VPC](https://cloud.google.com/vpc/docs/shared-vpc#ip_addresses)
+    * Shared VPC allows an organization to connect resources from multiple projects to a common Virtual Private Cloud (VPC) network, so that they can communicate with each other securely and efficiently using internal IPs from that network. When you use Shared VPC, you designate a project as a host project and attach one or more other service projects to it.
+
+    * <b>Concepts</b>
+        * A host project contains one or more Shared VPC networks.
+        * A service project is any project that has been attached to a host project
+        * A project cannot be both a host and a service project simultaneously.
+        * A service project can belong to only one host project.
+
+    For clarity, a project that does not participate in Shared VPC is called a `standalone project`. This emphasizes that it is neither a host project nor a service project.
+
+    * <b>IAM</b>
+
+        Required Administrative Roles
+        | IAM Role | Puprose |
+        | ---------| --------|
+        | Organization Admin | The nominate the Shared VPC Admins |
+        | Shared VPC Admin | Shared VPC Admins have the Compute Shared VPC Admin (compute.xpnAdmin) and Project IAM Admin (resourcemanager.projectIamAdmin) roles for the organization or one or more folders. |
+        | Service Project Admin | A Shared VPC Admin defines a Service Project Admin by granting an IAM member the Network User (compute.networkUser) role to either the whole host project or select subnets of its Shared VPC networks. |
+
+    * Basic concept
+    <img align="center" src="https://cloud.google.com/vpc/images/shared-vpc/shared-vpc-example-concepts.svg">
+
+
 1. Configure API Access
 1. Configure VPC flow logs
 

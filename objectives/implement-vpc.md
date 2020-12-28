@@ -2,7 +2,7 @@
 
 ## 2.1 Configuring VPCs.
 
-* Configuring GCP VPC resources (CIDR range, subnets, firewall rules, etc.)
+1. Configuring GCP VPC resources (CIDR range, subnets, firewall rules, etc.)
 
 [GCP VPC Core Concepts](https://cloud.google.com/vpc/docs/concepts)
 

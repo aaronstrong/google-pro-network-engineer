@@ -4,7 +4,7 @@
 
 1. Configuring GCP VPC resources (CIDR range, subnets, firewall rules, etc.)
 
-[GCP VPC Core Concepts](https://cloud.google.com/vpc/docs/concepts)
+ [GCP VPC Core Concepts](https://cloud.google.com/vpc/docs/concepts)
 
   * [IP addresses](https://cloud.google.com/compute/docs/ip-addresses)
   

@@ -146,7 +146,7 @@
 
     For clarity, a project that does not participate in Shared VPC is called a `standalone project`. This emphasizes that it is neither a host project nor a service project.
 
-    * <b>IAM</b>
+    * <b>IAM</b>  :construction_worker:
 
         Required Administrative Roles
         | IAM Role | Puprose |
@@ -169,6 +169,42 @@
           * Egress firewalls :fire: must permit traffic to the IP address ranges used by Google APIs and services. 
       * <b>IAM</b> :construction_worker:
           * `Owner`, `Editor`, or `Network Admin` role can create or update subnets and assign IP addresses.
+      * <b>Network Configuration</b>
+
+        | Domain and IP address | Supported Services | Example Usage |
+        | ----------------------|--------------------|---------------|
+        | `private.googleapis.com` 199.36.153.8/30 | Enables API access to most Google APIs and services regardless of whether they are supported by VPC Service Controls. | Use private.googleapis.com to access Google APIs and services using a set of IP addresses only routable from within Google Cloud. Under circumstances that you don't use VPC Service Controls |
+        | `restricted.googleapis.com` 199.36.153.4/30 | Enables API access to Google APIs and services that are supported by VPC Service Controls. | Choose `restricted.googleapis.com` when you <b>only</b> need access to Google APIs and services that <b>are</b> supported by VPC Service Controls |
+        >:start:<b>Note</b>:  If you need to restrict users to just the Google APIs and services that support VPC Service Controls, use `restricted.googleapis.com.`
+
+        * <b>[DNS Configuation](https://cloud.google.com/vpc/docs/configure-private-google-access#config-domain)</b>
+
+          If you choose either `private.googleapis.com` or `restricted.googleapis.com`, you need to configure DNS such that VMs in your VPC network resolve requests to `*.googleapis.com`.
+    * <b>[Cloud NAT](https://cloud.google.com/nat/docs/overview)</b>
+
+      Lets Google Cloud virtual machine (VM) instances without external IP addresses and private Google Kubernetes Engine (GKE) clusters send outbound packets to the internet.
+
+      * Cloud NAT is distributed, software defined managed service. No appliances or VMs.
+      * Implements outbound NAT in conjunction with static routes in your VPC whose next hop is <i>default internet gateway</i>
+      * Does NOT implement unsolicited inbound connections from the internet.
+      * Does not have any firewall rule requirement. Firewall rules are applied directly to network instances, not NAT gateways
+      * Depends on Cloud Router
+      * Cloud NAT relies on custom static routes whose next hops are the default internet gateway.
+      * The Cloud NAT gateway can be configured to provide NAT for the VM network interface's primary internal IP address, alias IP ranges, or both
+
+      > :star: <b>Note</b>: Even though a Cloud NAT gateway is managed by a Cloud Router, Cloud NAT does not use or depend on the Border Gateway Protocol (BGP).
+
+      <b>NAT IP addressess and Ports</b>
+
+        
+      Benefits
+      | Security | Availability | Scalability | Performance |
+      | ---------|--------------|-------------|-------------|
+      | VMs don't need external IPs | SDN vs VMs | Automatically scale the # of NAT IP addresses | NAT does not reduce bandwidth per VM |
+
+
+      
+
 1. Configure VPC flow logs
 
 ## 2.2 Configuring routing

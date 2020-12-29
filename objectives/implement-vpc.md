@@ -81,7 +81,7 @@
       Broadcast | Last address in the primary IP range for the subnet | 10.1.2.255 in 10.1.2.0/24 |
       |Secondary Range | The first address in the secondary IP range | 172.16.0.0 in 172.16.0.0/24
 
-      > <b>Note</b>: Google Cloud software-defined networking reserves a virtual gateway IP address for the primary IP ranges of each subnet in a VPC network. However, virtual gateways do not respond to ICMP traffic or decrement IP TTL headers.
+      > :star:<b>Note</b>: Google Cloud software-defined networking reserves a virtual gateway IP address for the primary IP ranges of each subnet in a VPC network. However, virtual gateways do not respond to ICMP traffic or decrement IP TTL headers.
 
     * [Routes and Firewalls](https://cloud.google.com/vpc/docs/vpc#affiliated_resources)
 
@@ -89,7 +89,7 @@
       1. The `default route` defines a path for traffic to leave the VPC network. It provides general internet access to VMs that meet the internet access requirements. It also provides the typical path for Private Google Access.
       1. A `subnet route` is created for each of the IP ranges associated with a subnet. Every subnet has at least one subnet route for its primary IP range. Additional subnet routes are created for a subnet if you add secondary IP ranges to it. Subnet routes define paths for traffic to reach VMs that use the subnets. You cannot remove subnet routes manually.
 
-      ><b>Note:</b> If your VPC network is connected to an on-premises network by using Cloud VPN or Cloud Interconnect, check that subnet ranges do not conflict with on-premises IP addresses. Subnet routes are prioritized first so traffic to the destination range remains in your VPC network, even though it might have been intended for the on-premises network.
+      >:star:<b>Note:</b> If your VPC network is connected to an on-premises network by using Cloud VPN or Cloud Interconnect, check that subnet ranges do not conflict with on-premises IP addresses. Subnet routes are prioritized first so traffic to the destination range remains in your VPC network, even though it might have been intended for the on-premises network.
 1. [VPC peering](https://cloud.google.com/vpc/docs/vpc-peering)
     * VPC Network Peering enables you to connect VPC networks so that workloads in different VPC networks can communicate internally. Traffic stays within Google's network and doesn't traverse the public internet.
 
@@ -159,7 +159,16 @@
     <img align="center" src="https://cloud.google.com/vpc/images/shared-vpc/shared-vpc-example-concepts.svg">
 
 
-1. Configure API Access
+1. Configure API Access (private, public, NAT GW, proxy)
+    * [Private Google Access](https://cloud.google.com/vpc/docs/configure-private-google-access)
+      When a VM instance doesn't have a public IP address, but requires access to Google APIs
+      * <b>Requirements</b>
+          * Private Google Access enabled on a per-subnet basis
+          * If using `private.googleapis.com` or `restricted.googleapis.com` domain names, you'll need to create DNS records for these domains.
+          * Appropriate routes must exist. These routes must use the default internet gateway as next hop. If using `private.googleapis.com` or `restricted.googleapis.com` you'll need one route per domain.
+          * Egress firewalls :fire: must permit traffic to the IP address ranges used by Google APIs and services. 
+      * :construction_worker:<b>IAM</b>
+          * `Owner`, `Editor`, or `Network Admin` role can create or update subnets and assign IP addresses.
 1. Configure VPC flow logs
 
 ## 2.2 Configuring routing

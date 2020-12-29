@@ -167,7 +167,7 @@
           * If using `private.googleapis.com` or `restricted.googleapis.com` domain names, you'll need to create DNS records for these domains.
           * Appropriate routes must exist. These routes must use the default internet gateway as next hop. If using `private.googleapis.com` or `restricted.googleapis.com` you'll need one route per domain.
           * Egress firewalls :fire: must permit traffic to the IP address ranges used by Google APIs and services. 
-      * :construction_worker:<b>IAM</b>
+      * <b>IAM</b> :construction_worker:
           * `Owner`, `Editor`, or `Network Admin` role can create or update subnets and assign IP addresses.
 1. Configure VPC flow logs
 

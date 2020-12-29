@@ -175,7 +175,7 @@
         | ----------------------|--------------------|---------------|
         | `private.googleapis.com` 199.36.153.8/30 | Enables API access to most Google APIs and services regardless of whether they are supported by VPC Service Controls. | Use private.googleapis.com to access Google APIs and services using a set of IP addresses only routable from within Google Cloud. Under circumstances that you don't use VPC Service Controls |
         | `restricted.googleapis.com` 199.36.153.4/30 | Enables API access to Google APIs and services that are supported by VPC Service Controls. | Choose `restricted.googleapis.com` when you <b>only</b> need access to Google APIs and services that <b>are</b> supported by VPC Service Controls |
-        >:start:<b>Note</b>:  If you need to restrict users to just the Google APIs and services that support VPC Service Controls, use `restricted.googleapis.com.`
+        >:star:<b>Note</b>:  If you need to restrict users to just the Google APIs and services that support VPC Service Controls, use `restricted.googleapis.com.`
 
         * <b>[DNS Configuation](https://cloud.google.com/vpc/docs/configure-private-google-access#config-domain)</b>
 

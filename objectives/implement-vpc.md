@@ -205,7 +205,13 @@
 
       
 
-1. Configure VPC flow logs
+1. [Configure VPC flow logs](https://cloud.google.com/vpc/docs/flow-logs)
+
+    VPC Flow Logs records a sample of network flows sent from and received by VM instances, including instances used as Google Kubernetes Engine nodes. These logs can be used for network monitoring, forensics, real-time security analysis, and expense optimization.
+
+    * <b>Keys</b>   
+        - Flow logs introduce no delays or performance penalty
+        - 
 
 ## 2.2 Configuring routing
 

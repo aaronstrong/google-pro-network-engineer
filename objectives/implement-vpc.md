@@ -194,15 +194,21 @@
 
       > :star: <b>Note</b>: Even though a Cloud NAT gateway is managed by a Cloud Router, Cloud NAT does not use or depend on the Border Gateway Protocol (BGP).
 
-      <b>NAT IP addressess and Ports</b>
-
+      <b>[NAT IP addressess and Ports](https://cloud.google.com/nat/docs/ports-and-addresses)</b>
         
-      Benefits
+        <b>NAT IP Addresses</b>
+          - A NAT IP address is a regional external IP address, routable on the internet.
+          - 2 methods: `Automatic` and `Manual`
+        
+        <b>Ports</b>
+          - Each NAT IP address on a Cloud NAT gateway offers 64,512 TCP source ports and 64,512 UDP source ports
+          - Cloud NAT doesn't use the first 1,024 well-known (privileged) ports.
+          - The minimum ports per VM instance that you specify (default is 64)
+
+      <b>Benefits</b>
       | Security | Availability | Scalability | Performance |
       | ---------|--------------|-------------|-------------|
       | VMs don't need external IPs | SDN vs VMs | Automatically scale the # of NAT IP addresses | NAT does not reduce bandwidth per VM |
-
-
       
 
 1. [Configure VPC flow logs](https://cloud.google.com/vpc/docs/flow-logs)
@@ -211,7 +217,9 @@
 
     * <b>Keys</b>   
         - Flow logs introduce no delays or performance penalty
-        - 
+        - Only works with VPC networks, not legacy.
+        - Enable/disable per subnet and collects all data from VMs
+        - Use filters to generate certain logs
 
 ## 2.2 Configuring routing
 

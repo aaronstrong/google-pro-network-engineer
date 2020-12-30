@@ -223,9 +223,26 @@
 
 ## 2.2 Configuring routing
 
-1. Configuring internal static/dynamic routing
+1. [Configuring internal static/dynamic routing](https://cloud.google.com/network-connectivity/docs/router/concepts/overview#static_versus_dynamic_routing)
+
+    Cloud Router isn't a connectivity option, but a service that works over Cloud VPN or Interconnect connections to provide dynamic routing by using the BGP)for your VPC networks. Cloud Router isn't supported for Direct Peering or Carrier Peering connections.
+
+    Cloud Router is required or recommended in the following cases:
+    * Required for Cloud NAT
+    * Required for Cloud Interconnect and HA VPN
+    * A recommended configuration option for Classic VPN
+
+    With static routes, you must create or maintain a routing table. A topology change on either network requires you to manually update static routes. Also, static routes can't automatically reroute traffic if a link fails. Suiteable for small and stable topologies.
+
+    With Cloud Router, you can use BGP to exchange routing information between networks.  Changes are seamlessly implemented without disrupting traffic. This method of exchanging routes through BGP is dynamic routing. Suitable for any size network.
+
 1. Configuring routing policies using tags and priority
-1. Configuring NAT (e.g., Cloud NAT, instance-based NAT)
+
+    * When you create a route, you specify a VPC network and can specify tags so that the route is only applicable to traffic sent from the primary internal IP address of the network interface attached to that VPC network for instances with matching network tags.
+
+    * Specify a Priority for the route. A priority is only used to to determine routing order if routes have equivalent destinations. See static route parameters for more details.
+1. [Configuring NAT (e.g., Cloud NAT, instance-based NAT)](https://cloud.google.com/nat/docs/using-nat#creating_nat)
+    * Use the link to configure a Cloud NAT
 
 ## 2.3 Configuring and maintaining Google Kubernetes Engine clusters. Considerations include:
 

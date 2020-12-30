@@ -272,7 +272,7 @@
     * If you omit both protocols and ports, the firewall rule is applicable for all traffic on any protocol and any destination port.
     * You can only specify destination ports. Source ports not supported.
 1. Ingress and egress rules
-1. Firewall logs
+1. [Firewall logs](https://cloud.google.com/vpc/docs/firewall-rules-logging)
     * Firewall Rules Logging allows you to audit, verify, and analyze the effects of your firewall rules.
     * Logging is also useful if you need to determine how many connections are affected by a given firewall rule.
     * <b>IAM</b>  :construction_worker:

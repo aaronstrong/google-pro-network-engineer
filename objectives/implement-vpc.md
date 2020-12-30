@@ -254,11 +254,32 @@
 
 ## 2.4 Configuring and managing firewall rules. Considerations include:
 
-1. Target network tags and service accounts
-1. Priority
-1. Network protocols
+1. [Target network tags and service accounts](https://cloud.google.com/vpc/docs/add-remove-network-tags)
+    * You make a firewall rule applicable to specific instances by using target tags and source tags
+    * The default target is all instances in the network, but you can specify instances as targets using either target tags or target service accounts.
+    * The target tag defines the Google Cloud VMs to which the rule applies.
+    * The source tag for an ingress firewall rule applied on a VPC network.
+    * You can use a combination of IP ranges and source tags or a combination of IP ranges and source service accounts.
+    * You <b>cannot</b> use both network tags and service accounts in the same rule.
+1. [Priority](https://cloud.google.com/vpc/docs/firewalls#priority_order_for_firewall_rules)
+    * The firewall rule priority is an integer from 0 to 65535, inclusive. Lower integers indicate higher priorities. If you do not specify a priority when creating a rule, it is assigned a priority of 1000.
+    * The relative priority of a firewall rule determines whether it is applicable when evaluated against others. The evaluation logic works as follows:
+        1. The highest priority rule applicable to a target for a given type of traffic takes precedence.
+        1. The highest priority rule applicable for a given protocol and destination port definition takes precedence, even when the protocol and destination port definition is more general.
+        1. A rule with a deny action overrides another with an allow action only if the two rules have the same priority.
+1. [Network protocols](https://cloud.google.com/vpc/docs/firewalls#protocols_and_ports)
+    * You can specify a protocol or a combination of protocols and their destination ports.
+    * If you omit both protocols and ports, the firewall rule is applicable for all traffic on any protocol and any destination port.
+    * You can only specify destination ports. Source ports not supported.
 1. Ingress and egress rules
 1. Firewall logs
+    * Firewall Rules Logging allows you to audit, verify, and analyze the effects of your firewall rules.
+    * Logging is also useful if you need to determine how many connections are affected by a given firewall rule.
+    * <b>IAM</b>  :construction_worker:
+        | Task | Role |
+        |------|------|
+        | Create/delete/update rules | `Owner`, `Editor`, `Security Admin` |
+        | View Logs | `Owner`, `Editor`, `Viewer`, `Security Admin` |
 
 
 

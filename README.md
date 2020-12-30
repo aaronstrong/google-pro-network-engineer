@@ -26,3 +26,4 @@ Resources from other community members:
 1. [Ammett Williams](https://www.linkedin.com/pulse/google-cloud-professional-network-engineer-exam-prep-williams/)
 1. [Jaroslav Pantjoha](https://medium.com/devops-dudes/google-cloud-network-engineer-exam-experience-fail-fast-learn-pass-1d913e18888)
 1. [Ivam Luz](https://medium.com/ci-t/how-to-pass-the-google-professional-cloud-network-engineer-certification-40bb1f6cc962)
+1. [Test Prep](https://www.testpreptraining.com/tutorial/google-professional-cloud-network-engineer/)

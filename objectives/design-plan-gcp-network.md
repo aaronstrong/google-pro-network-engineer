@@ -1,19 +1,37 @@
-# Designing, planning and prototyping a GCP network
+# 1. Designing, planning and prototyping a GCP network
 
 ## 1.1 Designing the overall network architecture. Considerations include:
 
-* Failover and disaster recovery strategy
-* Options for high availability
-* DNS strategy (e.g., on-premises, Cloud DNS, GSLB)
-* Meeting business requirements
-* Choosing the appropriate load balancing options
-* Optimizing for latency (e.g., MTU size, caches, CDN)
-* Understanding how quotas are applied per project and per VPC
-* Hybrid connectivity (e.g., Google private access for hybrid connectivity)
-* Container networking
-* IAM and security
-* SaaS, PaaS, and IaaS services
-* Microsegmentation for security purposes (e.g., using metadata, tags)
+1. [Failover and disaster recovery strategy](https://cloud.google.com/solutions/dr-scenarios-for-applications)
+    * asdfadsf
+1. Options for high availability
+    * [MySQL HA](https://cloud.google.com/sql/docs/mysql/high-availability)
+    * [HA for Instance](https://cloud.google.com/sql/docs/mysql/configure-ha)
+1. DNS strategy (e.g., on-premises, Cloud DNS, GSLB)
+    * [Cloud DNS](https://cloud.google.com/dns/docs/how-to)
+    * 
+1. [Meeting business requirements](https://cloud.google.com/docs/enterprise/best-practices-for-enterprise-organizations)
+1. Choosing the appropriate load balancing options
+    
+    [Load Balancer Overview](https://cloud.google.com/load-balancing/docs/load-balancing-overview)
+
+    [Choosing a Load Balancer](https://cloud.google.com/load-balancing/images/choose-lb.svg)
+
+    ![](https://cloud.google.com/load-balancing/images/choose-lb.svg)
+
+1. Optimizing for latency (e.g., MTU size, caches, CDN)
+1. Understanding how quotas are applied per project and per VPC
+
+    [Project Quotas](https://cloud.google.com/vpc/docs/quota#per_project)
+
+    [VPC Quotas](https://cloud.google.com/vpc/docs/quota#per_network)
+1. [Hybrid connectivity (e.g., Google private access for hybrid connectivity)](https://cloud.google.com/vpc/docs/configure-private-google-access-hybrid)
+1. [Container networking](https://cloud.google.com/kubernetes-engine/docs/concepts/network-overview)
+1. [IAM and security](https://cloud.google.com/iam/docs/overview)
+
+![](https://cloud.google.com/iam/img/iam-overview-basics.svg)
+1. SaaS, PaaS, and IaaS services
+1. [Microsegmentation for security purposes (e.g., using metadata, tags)](https://cloud.google.com/blog/products/networking/google-cloud-networking-in-depth-three-defense-in-depth-principles-for-securing-your-environment)
 
 ## 1.2 Designing a Virtual Private Cloud (VPC). Considerations include:
 

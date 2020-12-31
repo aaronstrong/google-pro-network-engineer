@@ -132,13 +132,29 @@ You can change the dynamic routing mode from regional to global and vica-versa w
 
 ## 1.3 Designing a hybrid network. Considerations include:
 
-* Using interconnect (e.g., dedicated vs. partner)
-* Peering options (e.g., direct vs. carrier)
-* IPsec VPN
-* Cloud Router
-* Failover and disaster recovery strategy (e.g., building high availability with BGP using cloud router)
-* Shared vs. standalone VPC interconnect access
-* Cross-organizational access
-* Bandwidth
+1. [Using interconnect (e.g., dedicated vs. partner)](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-overview)
 
-## 1.4 Designing a container IP addressing plan for Google Kubernetes Engine 
+* Basic Layer 2 Topology
+![](https://cloud.google.com/network-connectivity/docs/interconnect/images/layer2-basic.svg)
+* Basicy Layer 3 Topology
+![](https://cloud.google.com/network-connectivity/docs/interconnect/images/layer3-basic.svg)
+
+1. Peering options (e.g., direct vs. carrier)
+* [Carrier Peering Options](https://cloud.google.com/network-connectivity/docs/carrier-peering)
+* [Direct Peering](https://cloud.google.com/network-connectivity/docs/direct-peering)
+1. [IPsec VPN](https://cloud.google.com/network-connectivity/docs/vpn/concepts/overview)
+![](https://cloud.google.com/network-connectivity/docs/vpn/images/ha-vpn-gcp-to-on-prem-2-a.svg)
+1. [Cloud Router](https://cloud.google.com/network-connectivity/docs/router)
+1. Failover and disaster recovery strategy (e.g., building high availability with BGP using cloud router)
+    * [Using Cloud VPN](https://cloud.google.com/solutions/dr-scenarios-for-applications)
+    * [Cloud Router Best Practices](https://cloud.google.com/network-connectivity/docs/router/concepts/best-practices)
+1. Shared vs. standalone VPC interconnect access
+    * [Shared VPC Overview](https://cloud.google.com/vpc/docs/shared-vpc)
+    * [Dedicated Interconnect in other projects](https://cloud.google.com/network-connectivity/docs/interconnect/how-to/dedicated/using-interconnects-other-projects)
+1. [Cross-organizational access](https://cloud.google.com/resource-manager/docs/access-control-org)
+1. [Bandwidth](https://cloud.google.com/community/tutorials/network-throughput)
+
+## 1.4 Designing a container IP addressing plan for Google Kubernetes Engine
+
+* [Overview](https://cloud.google.com/kubernetes-engine/docs/concepts/network-overview)
+

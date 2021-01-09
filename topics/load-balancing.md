@@ -44,6 +44,10 @@ A load balancer distributes user traffic across multiple instances of your appli
     * Network Load Balancing
     * Internal TCP/UDP Load Balancing
 
+<b>Choosing a load balancer</b>
+
+![](https://cloud.google.com/load-balancing/images/choose-lb.svg)
+
 [Load Balancing Backend Service Overview](https://cloud.google.com/load-balancing/docs/backend-service)
 
 There are 6 backend load balancing services. A backend service is either <i>global</i> or <i>regional</i> in scope.

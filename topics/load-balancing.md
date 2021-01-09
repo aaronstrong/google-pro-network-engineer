@@ -6,6 +6,16 @@ A load balancer distributes user traffic across multiple instances of your appli
 
 ![](https://cloud.google.com/load-balancing/images/lb-simple-overview.svg)
 
+<b>Summary of Cloud Load Balancers</b>
+| Load Balancer Type       | Traffic Type            | Preserve Client IP | Global or Regional                                              | Load Balancing Scheme | Load Balancer destination Ports              | Proxy or pass- through |
+|--------------------------|-------------------------|--------------------|-----------------------------------------------------------------|-----------------------|----------------------------------------------|------------------------|
+| External HTTP(S)         | HTTP or HTTPS           | No                 | Global                                                          | EXTERNAL              | HTTP on 80 or 8080; HTTPS on 443             | Proxy                  |
+| Internal HTTP(S)         | HTTP or HTTPS           | NO                 | Regional                                                        | INTERNAL_MANAGED      | HTTP on 80 or 8080; HTTPS on 443             | Proxy                  |
+| SSL Proxy                | TCP with SSL offload    | No                 | Global                                                          | EXTERNAL              | 25,43,110,143,195,443,465,587,700,993,995... | Proxy                  |
+| TCP Proxy                | TPC without SSL offload | No                 | Global                                                          | EXTERNAL              | 25,43,110,143,195,443,465,587,700,993,995... | Proxy                  |
+| External Network TCP/UDP | TCP or UDP              | Yes                | Regional                                                        | EXTERNAL              | Any                                          | Pass through           |
+| Internal TCP/UDP         | TCP or UDP              | Yes                | Regional backends, regional frontends (global access supported) | INTERNAL              | Any                                          | Pass through           |
+
 <b>Types of Cloud Load Balancing</b>
 
 | Internal or External | Regional/Global                       | Network Tiers  | Proxy/Pass through | Traffic Type | LB Type          |

@@ -14,6 +14,16 @@ Here are the objectives of the exam at a high level. A deeper discussion of the 
 1. [Managing and monitoring network operations](./objectives/monitor-network.md)
 1. [Optimizing network resources](./objectives/optimize-resources.md)
 
+## Topics
+1. [IAM](./topics/iam.md)
+1. [VPC Design](./topics/vpc-design.md)
+1. [Kubernetes Networking](./topics/kubernetes-networking.md)
+1. [Load Balancing](./topics/load-balancing.md)
+1. [DNS](./topics/dns.md)
+1. [CDN](./topics/cdn.md)
+1. [Monitoring](./topics/monitoring.md)
+1. [Hybrid Networks](./topics/hybrid.md)
+
 ## Practie Exam Questions
 
 Google has some [practice exams](https://cloud.google.com/certification/sample-questions/cloud-network-engineer). You can take them an unlimited number of times.

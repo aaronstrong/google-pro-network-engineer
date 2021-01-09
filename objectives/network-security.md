@@ -1,6 +1,6 @@
-# 3 Configuring network services
+# 5 Configuring network services
 
-## 3.1 Configuring load balancing. Considerations include
+## 5.1 Configuring load balancing. Considerations include
 
 1. Creating backend services
 
@@ -25,7 +25,7 @@
     * [Session Affinity](https://cloud.google.com/load-balancing/docs/backend-service#session_affinity)
 1. [Capacity scaling](https://cloud.google.com/compute/docs/load-balancing-and-autoscaling#http_load_balancing_signals)
 
-## 3.2 Configuring Cloud CDN. Considerations include:
+## 5.2 Configuring Cloud CDN. Considerations include:
 
 1. Enabling and disabling Cloud CDN
     * [CDN with a bucket](https://cloud.google.com/cdn/docs/setting-up-cdn-with-bucket)
@@ -33,7 +33,7 @@
 1. Cache invalidation
 1. Signed URLs
 
-## 3.3 Configuring and maintaining Cloud DNS. Considerations include:
+## 5.3 Configuring and maintaining Cloud DNS. Considerations include:
 
 1. Managing zones and records
 1. Migrating to Cloud DNS
@@ -43,7 +43,7 @@
 1. Internal DNS
 1. Integrating on-premises DNS with GCP
 
-## 3.4 Enabling other network services. Considerations include:
+## 5.4 Enabling other network services. Considerations include:
 
 1. Health checks for your instance groups
 1. Canary (A/B) releases

@@ -46,18 +46,26 @@ There are 3 types of zones for name resolutions.
     4. Update registrar's name server records. Sign into the registrar provider and change the authoritative name servers to point to the name servers.
     5. Wait for the changes and verify
 
-    <b>Resolution Order</b>
+    <b>[Cloud DNS Name Resolution Order](https://cloud.google.com/dns/docs/vpc-name-res-order)</b>
     
-    1. Cloud Dns
-    1. Private zones
-    1. DNS policy forwarding rule
-    1. Private DNS forwarding zones
-    1. Private and peer zones
+    1. Outbound Server Policy. GCP forwards <b>ALL</b> DNS queries to those alternative servers.
+    1. Searching records created in private zones.
+    1. Querying the forwarding targets for forwarding zones.
+    1. Querying the name resolution order of another VPC network by using peering zones.
     1. Compute engine internal DNS
-    1. Queries public zones
-
+    1. Queries publicily available zones
 
 ## DNS Forwarding and Peering
+
+Cloud DNS forwarding zones let you configure target name servers for specific private zones. Using a forwarding zone is one way to implement outbound DNS forwarding from your VPC network.
+
+A Cloud DNS forwarding zone is a special type of Cloud DNS private zone. Instead of creating records within the zone, you specify a set of forwarding targets. Each forwarding target is an IP address of a DNS server, located in your VPC network, or in an on-premises network connected to your VPC network by Cloud VPN or Cloud Interconnect.
+
+<b>[DNS Server policies](https://cloud.google.com/dns/docs/overview#dns-server-policy)</b>
+
+DNS server policy can be configured for each VPC network.  The policy can specify inbound DNS forwarding, outbound DNS forwarding, or both.
+
+<b>DNS Forwarding</b>
 
 ## Cloud CDN
 

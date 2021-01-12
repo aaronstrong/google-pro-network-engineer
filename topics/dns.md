@@ -61,9 +61,23 @@ Cloud DNS forwarding zones let you configure target name servers for specific pr
 
 A Cloud DNS forwarding zone is a special type of Cloud DNS private zone. Instead of creating records within the zone, you specify a set of forwarding targets. Each forwarding target is an IP address of a DNS server, located in your VPC network, or in an on-premises network connected to your VPC network by Cloud VPN or Cloud Interconnect.
 
+2 Methods here: https://cloud.google.com/dns/docs/overview#dns-forwarding-methods
+
 <b>[DNS Server policies](https://cloud.google.com/dns/docs/overview#dns-server-policy)</b>
 
 DNS server policy can be configured for each VPC network.  The policy can specify inbound DNS forwarding, outbound DNS forwarding, or both.
+* Inboud Server Policy
+
+* Outbound Server Policy
+
+* [Listing inboud forwarder entry points](https://cloud.google.com/dns/docs/policies#list-in-entrypoints)
+
+    When an inbound server policy applies to a VPC network, Cloud DNS creates a set of regional internal IP addresses that serve as destinations to which your on-premises systems or name resolvers can send DNS requests. These addresses serve as entry points to the name resolution order of your VPC network.
+    ```gcloud
+    gcloud compute addresses list \
+    --filter='purpose = "DNS_RESOLVER"' \
+    --format='csv(address, region, subnetwork)'
+    ```
 
 <b>DNS Forwarding</b>
 

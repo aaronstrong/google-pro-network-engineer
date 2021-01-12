@@ -38,7 +38,7 @@ There are 3 types of zones for name resolutions.
 
     1. Create a managed zone in Cloud DNS that will contain your DNS records. When you create a zone, the new zone isn't used until you update your registration.
     2. Export your DNS config from your provider. This can be either in `BIND` or in `YAML` format.
-    > :star: Good testing material.
+        > :star: Good testing material.
     3. Import the record set
     ```gcloud
     gcloud dns record-sets import -z=EXAMPLE_ZONE_NAME --zone-file-format path-to-file

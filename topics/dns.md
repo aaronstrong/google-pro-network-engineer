@@ -32,6 +32,30 @@ There are 3 types of zones for name resolutions.
 
     ![](./registrar-to-clouddns.png)
 
+    <b>[Migrating Public Zones](https://cloud.google.com/dns/docs/migrating)</b>
+
+    Cloud DNS supports the migration of an existing DNS domain from another DNS provider to Cloud DNS.
+
+    1. Create a managed zone in Cloud DNS that will contain your DNS records. When you create a zone, the new zone isn't used until you update your registration.
+    2. Export your DNS config from your provider. This can be either in `BIND` or in `YAML` format.
+    > :start: Good testing material.
+    3. Import the record set
+    ```gcloud
+    gcloud dns record-sets import -z=EXAMPLE_ZONE_NAME --zone-file-format path-to-file
+    ```
+    4. Update registrar's name server records. Sign into the registrar provider and change the authoritative name servers to point to the name servers.
+    5. Wait for the changes and verify
+
+    <b>Resolution Order</b>
+    
+    1. Cloud Dns
+    1. Private zones
+    1. DNS policy forwarding rule
+    1. Private DNS forwarding zones
+    1. Private and peer zones
+    1. Compute engine internal DNS
+    1. Queries public zones
+
 
 ## DNS Forwarding and Peering
 

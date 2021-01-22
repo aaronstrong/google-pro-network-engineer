@@ -6,7 +6,6 @@
 1. [Cloud DNS Name Resolution Order](#Cloud-DNS-Name-Resolution-Order)
 1. [DNS Forwarding](#DNS-Forwarding)
 1. [DNS Peering](#Cloud-DNS-Peering)
-1. DNS Security
 1. [Reference Architectures for hybrid DNS](https://cloud.google.com/dns/docs/best-practices#reference_architectures_for_hybrid_dns)
 
 
@@ -115,11 +114,3 @@ DNS server policy can be configured for <u>each VPC network</u>.  The policy can
 DNS Peering allows for DNS name resolution between different GCP projects. The VPC network where the DNS peering zone performs lookups is called the DNS <i>producer</i> network. To use DNS peering, you must authorize a network to use a peering zone. The VPC network authorized to use the peering zone is called the DNS <i>consumer</i> network.
 
 In the diagram above, project H would be considered the producer and the other projects would be considered the consumer.
-
-## DNS Security
-
-## Cloud CDN
-
-## Cache Keys and Cache Invalidation
-
-## Signed URLs

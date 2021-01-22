@@ -2,9 +2,10 @@
 
 ## [Overview](https://cloud.google.com/dns/docs/overview)
 1. [Managed Zones](#Managed-DNS-Zones)
-1. [Migrating Public Zones](##Migrating-Public-Zones)
-1. [Cloud DNS Name Resolution Order](##Cloud-DNS-Name-Resolution-Order)
-1. [DNS Forwarding](##DNS-Forwarding)
+1. [Migrating Public Zones](#Migrating-Public-Zones)
+1. [Cloud DNS Name Resolution Order](#Cloud-DNS-Name-Resolution-Order)
+1. [DNS Forwarding](#DNS-Forwarding)
+1. [DNS Peering](#Cloud-DNS-Peering)
 1. DNS Security
 1. Migration of Public Zones
 1. DNS Forwarding

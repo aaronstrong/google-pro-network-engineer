@@ -7,8 +7,8 @@
 1. [DNS Forwarding](#DNS-Forwarding)
 1. [DNS Peering](#Cloud-DNS-Peering)
 1. DNS Security
-1. Migration of Public Zones
-1. DNS Forwarding
+1. [Reference Architectures for hybrid DNS](https://cloud.google.com/dns/docs/best-practices#reference_architectures_for_hybrid_dns)
+
 
 ## Managed DNS Zones
 There are 3 types of zones for name resolution.
@@ -77,7 +77,7 @@ GCP Cloud DNS offers two different ways to forward DNS queries to on-premises DN
 
 ### [DNS Forwarding for Private Zones](https://cloud.google.com/dns/docs/overview#dns-forwarding-zones)
 
-Cloud DNS forwarding zones let you configure target name servers for <u>specific private zones</u>. Using a forwarding zone is one way to implement outbound DNS forwarding from your VPC network.
+Cloud DNS forwarding zones let you configure target name servers for <u>specific private zones</u>. Using a forwarding zone is one way to implement outbound DNS forwarding from your VPC network to your on-premises DNS servers.
 
 A Cloud DNS forwarding zone is a special type of Cloud DNS private zone. This setting overrides normal DNS resolution of the specified zone. Instead of creating records within the zone, you specify a set of forwarding targets. Each forwarding target is an IP address of a DNS server, located in your VPC network, or in an on-premises network connected to your VPC network by Cloud VPN or Cloud Interconnect.
 
@@ -102,11 +102,21 @@ DNS server policy can be configured for <u>each VPC network</u>.  The policy can
 * [Outbound Server Policy](https://cloud.google.com/dns/docs/overview#dns-server-policy-out)
 
   Using an Outbound Server Policy, you're specifying the  alternative name servers that are the <i>only</i> name servers that Google Cloud queriries for that specific VPC.
+
+  <i>For on-prem to GCP name resolution, DNS Forwarding is preffered</i>
+
   > :start: <b>Important</b>: A DNS policy that enables outbound DNS forwarding disables resolution of Compute Engine internal DNS and Cloud DNS managed private zones
 
-  
 
 ## Cloud DNS Peering
+
+![](https://storage.googleapis.com/gweb-cloudblog-publish/images/VPC_2.max-1300x1300.jpg)
+
+DNS Peering allows for DNS name resolution between different GCP projects. The VPC network where the DNS peering zone performs lookups is called the DNS <i>producer</i> network. To use DNS peering, you must authorize a network to use a peering zone. The VPC network authorized to use the peering zone is called the DNS <i>consumer</i> network.
+
+In the diagram above, project H would be considered the producer and the other projects would be considered the consumer.
+
+## DNS Security
 
 ## Cloud CDN
 

@@ -1,7 +1,10 @@
 # DNS
 
 ## [Overview](https://cloud.google.com/dns/docs/overview)
-1. Managed Zones
+1. [Managed Zones](#Managed-DNS-Zones)
+1. [Migrating Public Zones](##Migrating-Public-Zones)
+1. [Cloud DNS Name Resolution Order](##Cloud-DNS-Name-Resolution-Order)
+1. [DNS Forwarding](##DNS-Forwarding)
 1. DNS Security
 1. Migration of Public Zones
 1. DNS Forwarding
@@ -30,7 +33,7 @@ There are 3 types of zones for name resolution.
 
     ![](./registrar-to-clouddns.png)
 
-## <b>[Migrating Public Zones](https://cloud.google.com/dns/docs/migrating)</b>
+## [Migrating Public Zones](https://cloud.google.com/dns/docs/migrating)
 
 Cloud DNS supports the migration of an existing DNS domain from another DNS provider to Cloud DNS. Here are the steps:
 
@@ -44,7 +47,7 @@ gcloud dns record-sets import -z=EXAMPLE_ZONE_NAME --zone-file-format path-to-fi
 4. Update registrar's name server records. Sign into the registrar provider and change the authoritative name servers to point to the name servers.
 5. Wait for the changes and verify
 
-## <b>[Cloud DNS Name Resolution Order](https://cloud.google.com/dns/docs/vpc-name-res-order)</b>
+## [Cloud DNS Name Resolution Order](https://cloud.google.com/dns/docs/vpc-name-res-order)
 
 Each VPC provides name resolution for VMs. When VMs use their metadata server `169.254.169.254` as their name server, Google Cloud searches for DNS records in the following order:
 
@@ -65,15 +68,19 @@ Each VPC provides name resolution for VMs. When VMs use their metadata server `1
 
 Cloud DNS Forwarding provides the ability to connect the Cloud DNS and on-premises environments for unified naming for workloads and resources. Use DNS Forwarding for inbound traffic, outbound traffic or both to support this type of architecture.
 
-GCP Cloud DNS offers two different ways to foward DNS queries to on-premises DNS servers: Private Zone Fowarding and DNS Server Policies.
+GCP Cloud DNS offers two different ways to foward DNS queries to on-premises DNS servers:
+*  [Forwarding for Private Zone](###DNS-Forwarding-for-Private-Zones)
+* [DNS Server Policies](###DNS-Server-policies).
 
 > :star: You cannot use DNS Forwarding between GCP resources. It does not matter if these projects are in the same organization or in different organizations. You must use DNS Peering.
 
-<b>[DNS Forwarding for Private Zones](https://cloud.google.com/dns/docs/overview#dns-forwarding-zones)</b>
+### [DNS Forwarding for Private Zones](https://cloud.google.com/dns/docs/overview#dns-forwarding-zones)
 
 Cloud DNS forwarding zones let you configure target name servers for <u>specific private zones</u>. Using a forwarding zone is one way to implement outbound DNS forwarding from your VPC network.
 
 A Cloud DNS forwarding zone is a special type of Cloud DNS private zone. This setting overrides normal DNS resolution of the specified zone. Instead of creating records within the zone, you specify a set of forwarding targets. Each forwarding target is an IP address of a DNS server, located in your VPC network, or in an on-premises network connected to your VPC network by Cloud VPN or Cloud Interconnect.
+
+### Creating a forwarding zone
 
 [Setting up a DNS Forwarder](https://cloud.google.com/dns/docs/zones#creating-forwarding-zones) is done at the early stages when creating a new private DNS zone.
 
@@ -84,23 +91,19 @@ A Cloud DNS forwarding zone is a special type of Cloud DNS private zone. This se
 
 2 Methods here: https://cloud.google.com/dns/docs/overview#dns-forwarding-methods
 
-<b>[DNS Server policies](https://cloud.google.com/dns/docs/overview#dns-server-policy)</b>
+### [DNS Server Policies](https://cloud.google.com/dns/docs/overview#dns-server-policy)
 
 DNS server policy can be configured for <u>each VPC network</u>.  The policy can specify inbound DNS forwarding, outbound DNS forwarding, or both.
-* Inboud Server Policy
+* [Inboud Server Policy](https://cloud.google.com/dns/docs/overview#dns-server-policy-in)
 
-* Outbound Server Policy
+  Inbound server policy allows for on-premises DNS to forward queries to Cloud DNS. After an Inbound Server Policy is created, Cloud DNS creates a set of [inbound forwarder IP addresses]((https://cloud.google.com/dns/docs/policies#list-in-entrypoints)) in each VPC where the policies are applied. These are the IPs the on-premises DNS servers will use to forward DNS requests.
 
-* [Listing inboud forwarder entry points](https://cloud.google.com/dns/docs/policies#list-in-entrypoints)
+* [Outbound Server Policy](https://cloud.google.com/dns/docs/overview#dns-server-policy-out)
 
-    When an inbound server policy applies to a VPC network, Cloud DNS creates a set of regional internal IP addresses that serve as destinations to which your on-premises systems or name resolvers can send DNS requests. These addresses serve as entry points to the name resolution order of your VPC network.
-    ```gcloud
-    gcloud compute addresses list \
-    --filter='purpose = "DNS_RESOLVER"' \
-    --format='csv(address, region, subnetwork)'
-    ```
+  Using an Outbound Server Policy, you're specifying the  alternative name servers that are the <i>only</i> name servers that Google Cloud queriries for that specific VPC.
+  > :start: <b>Important</b>: A DNS policy that enables outbound DNS forwarding disables resolution of Compute Engine internal DNS and Cloud DNS managed private zones
 
-<b>DNS Forwarding</b>
+  
 
 ## Cloud DNS Peering
 

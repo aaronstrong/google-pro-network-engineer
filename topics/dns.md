@@ -105,7 +105,7 @@ DNS server policy can be configured for <u>each VPC network</u>.  The policy can
 
   <i>For on-prem to GCP name resolution, DNS Forwarding is preffered</i>
 
-  > :start: <b>Important</b>: A DNS policy that enables outbound DNS forwarding disables resolution of Compute Engine internal DNS and Cloud DNS managed private zones
+  > :star: <b>Important</b>: A DNS policy that enables outbound DNS forwarding disables resolution of Compute Engine internal DNS and Cloud DNS managed private zones.
 
 
 ## Cloud DNS Peering

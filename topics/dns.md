@@ -67,10 +67,10 @@ Each VPC provides name resolution for VMs. When VMs use their metadata server `1
 
 ![](https://miro.medium.com/max/1050/1*XLg81YrApCmGZt1ECScQDg.png)
 
-Cloud DNS Forwarding provides the ability to connect the Cloud DNS and on-premises environments for unified naming for workloads and resources. Use DNS Forwarding for inbound traffic, outbound traffic or both to support this type of architecture.
+Cloud DNS Forwarding provides the ability to connect the Cloud DNS and on-premises environments for unified naming for workloads and resources.
 
-GCP Cloud DNS offers two different ways to foward DNS queries to on-premises DNS servers:
-*  [Forwarding for Private Zone](###DNS-Forwarding-for-Private-Zones)
+GCP Cloud DNS offers two different ways to forward DNS queries to on-premises DNS servers:
+*  :star:[Forwarding for Private Zone](###DNS-Forwarding-for-Private-Zones) 
 * [DNS Server Policies](###DNS-Server-policies).
 
 > :star: You cannot use DNS Forwarding between GCP resources. It does not matter if these projects are in the same organization or in different organizations. You must use DNS Peering.

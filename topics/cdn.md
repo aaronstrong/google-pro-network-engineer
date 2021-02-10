@@ -1,6 +1,7 @@
 # CDN
 
 1. [Overview](#Overview)
+1. [Cache Keys](#Cache-Keys)
 
 
 ## Overview
@@ -39,3 +40,11 @@ Cache fill and cache egress
 
   Data transfer from a cache to a client is called cache egress.
 
+## [Cache Keys](https://cloud.google.com/cdn/docs/caching#cache-keys)
+
+Each cache entry in a Cloud CDN cache is identified by a cache key.When a request comes into the cache, the cache converts the URI of the request into a cache key, and then compares it with keys of cached entries. If it finds a match, the cache returns the object associated with that key.
+
+
+## Cache Expiration
+
+## Cache Validation

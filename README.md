@@ -24,6 +24,17 @@ Here are the objectives of the exam at a high level. A deeper discussion of the 
 1. [Monitoring](./topics/monitoring.md)
 1. [Hybrid Networks](./topics/hybrid.md)
 
+## Labs
+1. [Understand Cloud DNS by using a BIND server](./labs/bind-server.md)
+2. [Deploy Cloud VPN using the HA VPN between two GCP projects](./labs/ha-vpn.md)
+3. [Cloud VPN Static Routes](./)
+3. [Create a Squid Proxy server](./labs/proxy-server.md)
+4. [Using BigQuer for firewall analytics](./)
+5. [Using Load Balancers](./)
+6. [Deploying GKE](./)
+7. [Private Instances with Cloud NAT](./)
+8. [Firewalls and Service Accounts](./)
+
 ## Practie Exam Questions
 
 Google has some [practice exams](https://cloud.google.com/certification/sample-questions/cloud-network-engineer). You can take them an unlimited number of times.

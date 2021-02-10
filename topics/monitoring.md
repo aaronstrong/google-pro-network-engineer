@@ -47,7 +47,18 @@ When you enable logging for a firewall rule, Google Cloud creates an entry calle
 * Firewall Rules logging only records TCP and UDP connections. Use packet mirroring for other protocols.
 * You <i>cannot</i> enable Firewall Rule logging for implied firewall rules.
 * Log entries are written from perspective of VMs.
+* Logs are stored in Cloud Logging for 30 days. If needed for longer, must export to a bucket/Bigquery or Pub/Sub.
 
-## Admin Logs
+### IAM Roles
+
+Here are a few IAM roles that will allow a user or group to create, delete or update firewall rules.
+* Compute Admin
+* Compute Security Admin
+* Owner/Editor of the project
+
+Here's a list of IAM roles to view the logs. Be sure to use least privilege.
+* Logging Viewer
+* Project Viewer/Editor/Owner
 
 ## Cloud Monitoring (was Stackdriver Monitoring)
+
